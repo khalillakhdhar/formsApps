@@ -1,0 +1,31 @@
+<form [formGroup]="form">
+Name: <input type="text" formControlName="name" name="name">
+
+
+<br>
+<div *ngIf="f['name'].touched &&
+f['name'].invalid" class="error">
+<div *ngIf="f['name'].errors &&
+f['name'].errors['required']">Name is required.</div>
+<div *ngIf="f['name'].errors &&
+f['name'].errors['minlength']">Name should be 3
+character.</div>
+</div>
+Email: <input type="text" formControlName="email" name="email"><br>
+<div *ngIf="f['email'].touched &&
+f['email'].invalid" class="error">
+<div *ngIf="f['email'].errors &&
+f['email'].errors['required']">Email is required.</div>
+<div *ngIf="f['email'].errors &&
+f['email'].errors['email']">Please provide a valid email.
+</div>
+</div>
+Body:
+<textarea formControlName="body" name="bodytext"></textarea>
+<br>
+  <button type="submit" name="submit" [disabled]="form.invalid">Envoyer</button>
+
+
+
+
+</form>
