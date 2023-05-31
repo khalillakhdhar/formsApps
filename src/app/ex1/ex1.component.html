@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+
+Nom:<input formControlName="nom" type="text" name="nom" placeholder="votre nom ici"><br>
+<div *ngIf="f['nom'].touched && f['nom'].invalid">
+Veuillez renseigner le nom
+
+</div>
+Prenom:<input type="text" formControlName="prenom" name="prénom" placeholder="votre prénom ici"><br>
+<div *ngIf="f['prenom'].touched && f['prenom'].invalid">
+  Veuillez renseigner le prénom
+
+  </div>
+Age:<input type="number" formControlName="age" name="prénom" placeholder="votre age ici"><br>
+<div *ngIf="f['age'].touched && f['age'].invalid">
+  <div *ngIf="f['age'].errors &&
+  f['age'].errors['required']">Age est requis.</div>
+  <div *ngIf="f['age'].errors &&
+  f['age'].errors['min']">l'age doit être > 18
+  </div>
+  <div *ngIf="f['age'].errors &&
+  f['age'].errors['max']">l'age doit être < 54
+  </div>
+  </div>
+<button type="submit">Envoyer</button>
+
+
+
+
+
+</form>
